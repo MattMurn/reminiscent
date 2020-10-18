@@ -1,5 +1,5 @@
 {
-  "name": "dumdumjs",
+  "name": "reminiscent",
   "version": "0.0.0",
   "description": "NPM Package that mocks http response with api contract specification",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MattMurn/dumdumjs.git"
+    "url": "https://github.com/MattMurn/reminiscent.git"
   },
   "keywords": [
     "npm",
@@ -20,7 +20,7 @@
   "author": "Matthew Murnighan",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MattMurn/dumdumjs/issues"
+    "url": "https://github.com/MattMurn/reminiscent/issues"
   },
-  "homepage": "https://github.com/MattMurn/dumdumjs#readme"
+  "homepage": "https://github.com/MattMurn/reminiscent#readme"
 }
