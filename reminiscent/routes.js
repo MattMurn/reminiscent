@@ -1,9 +1,11 @@
 
-    const faker = require('faker');
-
     module.exports = function(app) {
+      let { fakedOut } = require('./prompts/promptBuilder.js')
+      let endpoint = {"endpoint":"/insights","operation":"get","quantity":"110","responseObject":true};
+      let responseTemplate = {"id":"number","score":"word"}
       app.get('/insights', (req, res) => {
-      res.json({"endpoint":"insights","operation":"get","responseObject":true,"id":"number","discipline_score":"number"});
+      let response = fakedOut(endpoint.quantity, responseTemplate);
+      res.json(JSON.stringify(response));
       });
     };
   

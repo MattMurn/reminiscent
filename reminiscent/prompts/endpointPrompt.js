@@ -16,6 +16,14 @@ const introPrompt = [
     },
   },
   {
+    type: 'input',
+    name: 'quantity',
+    message: "How many response objects would like",
+    default: function () {
+      return 1;
+    },
+  },
+  {
     type: 'confirm',
     name: 'responseObject',
     message: 'Is this the correct endpoint and method (just hit enter for YES)?',
