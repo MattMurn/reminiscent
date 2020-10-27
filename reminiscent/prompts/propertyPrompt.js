@@ -1,3 +1,6 @@
+
+const fakerTypes = require('../constants');
+
 const propertyPrompt = [
   {
     type: 'input',
@@ -11,7 +14,7 @@ const propertyPrompt = [
     type: 'list',
     name: 'type',
     message: 'response property type',
-    choices: ['word', 'number', 'boolean', 'object'],
+    choices: Object.keys(fakerTypes),
     filter: function (val) {
       return val.toLowerCase();
     },

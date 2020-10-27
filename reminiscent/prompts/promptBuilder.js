@@ -3,6 +3,7 @@ let inquirer = require('inquirer');
 let faker = require('faker');
 const endpointPrompt = require('./endpointPrompt.js');
 const propertyPrompt = require('./propertyPrompt.js');
+const fakerTypes = require('../constants');
 
 let endpoint;
 let userResponseObject = {};
@@ -28,22 +29,14 @@ function buildResponseObject() {
 function fakedOut(quantity, userResponseObject) {
   let updatedArr = []
   for(let i = 0; i <= quantity; i++){
+    // create the number of response object user wants
     let updated = {}
     for(let key in userResponseObject){
       let fakerProp = userResponseObject[key];
-      if(fakerProp == 'word'){
-        updated[key] = faker.random.word();  
-      }
-      else if(fakerProp == 'number'){
-      updated[key] = faker.random.number();
-      }
-      else if(fakerProp == 'boolean'){
-        updated[key] = faker.random.boolean();
-      }
+      updated[key] = fakerTypes[fakerProp](); // execute faker method here to ensure different values
     }
     updatedArr.push(updated);
   }
-  console.log(updatedArr);
   return updatedArr;
 }
 function buildRoutes(endpoint, userResponseObject) {
@@ -55,7 +48,8 @@ function buildRoutes(endpoint, userResponseObject) {
       let responseTemplate = ${JSON.stringify(userResponseObject)}
       app.${endpoint.operation}('${endpoint.endpoint}', (req, res) => {
       let response = fakedOut(endpoint.quantity, responseTemplate);
-      res.json(JSON.stringify(response));
+      console.log(response);
+      res.json(response);
       });
     };
   `, 'utf-8', e => console.error(e));  
