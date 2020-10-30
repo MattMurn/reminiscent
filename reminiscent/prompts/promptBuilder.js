@@ -40,7 +40,6 @@ function fakedOut(quantity, userResponseObject) {
   return updatedArr;
 }
 function buildRoutes(endpoint, userResponseObject) {
-  console.log(endpoint, userResponseObject)
   fs.writeFile('./reminiscent/routes.js', `
     module.exports = function(app) {
       let { fakedOut } = require('./prompts/promptBuilder.js')
