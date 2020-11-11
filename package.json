@@ -1,6 +1,6 @@
 {
   "name": "reminiscent",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "bin": "./reminiscent/initialize.js",
   "description": "NPM Package that mocks http response with api contract specification",
   "main": "index.js",
