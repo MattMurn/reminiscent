@@ -4,6 +4,8 @@ let faker = require('faker');
 const endpointPrompt = require('./endpointPrompt.js');
 const propertyPrompt = require('./propertyPrompt.js');
 const fakerTypes = require('../constants');
+var path = require('path');
+var appDir = path.dirname(require.main.filename);
 
 let endpoint;
 let userResponseObject = {};
@@ -39,8 +41,9 @@ function fakedOut(quantity, userResponseObject) {
   }
   return updatedArr;
 }
+
 function buildRoutes(endpoint, userResponseObject) {
-  fs.writeFile('./reminiscent/routes.js', `
+  fs.writeFile(`${appDir}/routes.js`, `
     module.exports = function(app) {
       let { fakedOut } = require('./prompts/promptBuilder.js')
       let endpoint = ${JSON.stringify(endpoint)};
